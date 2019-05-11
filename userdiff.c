@@ -60,6 +60,11 @@ PATTERNS("java",
 PATTERNS("matlab",
 	 "^[[:space:]]*((classdef|function)[[:space:]].*)$|^%%[[:space:]].*$",
 	 "[a-zA-Z_][a-zA-Z0-9_]*|[-+0-9.e]+|[=~<>]=|\\.[*/\\^']|\\|\\||&&"),
+PATTERNS("octave",
+	 /* Mostly the same as matlab. In addition, Octave
+	  * supports '##' and '%%%' for code sections */
+	 "^[[:space:]]*((classdef|function)[[:space:]].*)$|^(%%%?|##)[[:space:]].*$",
+	 "[a-zA-Z_][a-zA-Z0-9_]*|[-+0-9.e]+|[=~<>]=|\\.[*/\\^']|\\|\\||&&"),
 PATTERNS("objc",
 	 /* Negate C statements that can look like functions */
 	 "!^[ \t]*(do|for|if|else|return|switch|while)\n"
